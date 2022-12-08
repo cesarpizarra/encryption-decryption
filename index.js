@@ -1,20 +1,15 @@
 //function for encryption value and time execution of encryption
 function btnEncrypt(){ 
-    start = performance.now();
-	encryptValue();
-	end = performance.now();
-	timeTaken = end - start;
-    document.getElementById("encryptTime").innerHTML = timeTaken + " milliseconds";
-}
-
-function encryptValue(){
     var inputText = document.getElementById("inputText").value;
     var text = "";
-    for(let i=0; i < inputText.length; i++){
+    var start = performance.now();
+    console.log(start, "start time")
+    for(i=0; i < inputText.length; i++){
         text += encrypt(inputText[i]);
     }
     document.getElementById("encrypt-result").innerHTML = text;
-
+    // console.log(( performance.now() - start), "ms duration")
+    document.getElementById("encryptTime").innerHTML = (performance.now() - start) + " milliseconds";
 }
 
 // Convertion for the encrypt of the input text
@@ -124,21 +119,16 @@ function encrypt(x){
 }
 //function for decryption value and time execution of decryption
 function btnDecrypt(){ 
-    start = performance.now();
-	decryptValue();
-	end = performance.now();
-	timeTaken = end - start;
-    document.getElementById("decryptTime").innerHTML = timeTaken + " milliseconds";
-}
-
-function decryptValue(){
     var textInput = document.getElementById("textInput").value;
-    var input = "";
-    for(let i=0; i < textInput.length; i++){
-        input += decrypt(textInput[i]);
+    var text = "";
+    var start = performance.now();
+    console.log(start, "start time")
+    for(i=0; i < textInput.length; i++){
+        text += decrypt(textInput[i]);
     }
-    document.getElementById("decrypt-result").innerHTML = input;
-
+    document.getElementById("decrypt-result").innerHTML = text;
+    // console.log(( performance.now() - start), "ms duration")
+    document.getElementById("decryptTime").innerHTML = (performance.now() - start) + " milliseconds";
 }
 
 // Convertion for the decrypt of the input text
